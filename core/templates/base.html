@@ -1,0 +1,18 @@
+<!-- Because we are using Django's templates functionalty,
+I've created this(base.html) main template
+In short, all stuff that you will write here, will appear in any HTML file
+As an example, I've made an menu to navigating through the website-->
+<div>
+    <p>Menu</p>
+    <ul>
+        <li><a href="{% url 'materials_crud' %}">Explore data</a></li>
+        <li><a href="{% url 'materials_calculate' %}">Calculations</a></li>
+        <li><a href="{% url 'show_all_results' %}">Results</a></li>
+        <li><a href="{% url 'admin:index' %}" target="_blank">Admin</a></li>
+    </ul>
+</div>
+{% block content %}
+
+<!-- And unique content of every HTML, should be inside this "block content"-->
+
+{% endblock content %}
