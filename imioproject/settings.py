@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 
+from imioproject import db_conf
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-rmx#bp995@qp00malmg$k0w6k56)=m+cl4#9_p1s(e#qc*=o!a'
@@ -56,16 +58,7 @@ WSGI_APPLICATION = 'imioproject.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'ayaulyxd_imio',
-        'USER': 'ayaulyxd_imio',
-        'PASSWORD': '79udidaF!',
-        'HOST': 'ayaulyxd.beget.tech',   
-        'PORT': '3306',
-    }
-}
+DATABASES = db_conf.DB
 
 
 
