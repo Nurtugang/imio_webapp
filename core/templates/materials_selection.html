@@ -1,11 +1,14 @@
 {% extends 'base.html' %} <!--In order to inherit template(base.html) file, you need to write this command at the 1st line of your HTML-code-->
 {% block content %} <!-- Inside "block content there are unique content for this page" -->
+<div class="container">
 <h2>Select Materials for Calculation</h2>
 
 <form method="POST" action="{% url 'materials_calculate' %}">
     {% csrf_token %}
-    <table border="1">
-        <thead>
+    <div class="table-responsive">
+
+        <table class="table table-hover table-striped table-bordered">            
+            <thead>
             <tr>
                 <th>Select</th> <!-- Checkbox column -->
                 <th>Name</th>
@@ -40,7 +43,9 @@
             {% endfor %}
         </tbody>
     </table>
-    <button type="submit">Calculate</button>
+    <div class="d-flex justify-content-center mt-4">
+        <button type="submit" class="btn btn-primary">Calculate</button>
+    </div>
 </form>
 
 {% endblock content %}

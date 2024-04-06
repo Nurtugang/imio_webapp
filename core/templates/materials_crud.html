@@ -1,15 +1,19 @@
 {% extends 'base.html' %} <!--In order to inherit template(base.html) file, you need to write this command at the 1st line of your HTML-code-->
 {% block content %} <!-- Inside "block content there are unique content for this page" -->
 
+<div class="container mt-4">
+
 <h2>Materials</h2>
 
 <!-- Be careful with id and data-field of every block, because they are need for correct work of program, 
     you can change styles and add classes, just don't touch ids and data-fields-->
 
-    <form method="POST" id="materials-form">
-    {% csrf_token %}
-    <table border="1" id="materials-table">
-        <thead>
+    <form method="POST" id="materials-form" class="mt-3">
+        {% csrf_token %}
+        <div style="overflow-x:auto;">
+
+        <table class="table table-hover table-striped table-bordered" id="materials-table">
+            <thead>
             <tr>
                 <th>Name</th>
                 <th>Weight</th>
@@ -38,7 +42,8 @@
                 <td class="editable" data-field="Cu">{{ material.Cu }}</td>
                 <td class="editable" data-field="Al2O3">{{ material.Al2O3 }}</td>
                 <td class="editable" data-field="As0">{{ material.As0 }}</td>
-                <td><button type="button" class="delete-btn" data-material-id="{{ material.id }}">Delete</button></td>
+                <td>  <button type="button" class="btn btn-danger btn-sm delete-btn" data-material-id="{{ material.id }}">Delete</button>
+                </td>
             </tr>
             {% endfor %}
             <!-- Form row for adding new materials -->
@@ -57,9 +62,14 @@
             </tr>
         </tbody>
     </table>
-    <button type="submit">Add Material</button>
-</form>
+</div>
 
+
+<div class="text-center mt-3">
+    <button type="submit" class="btn btn-primary">Add Material</button>
+</div>
+</form>
+</div>
 <!--Just don't touch scripts-->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
